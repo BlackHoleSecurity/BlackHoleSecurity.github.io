@@ -1,0 +1,126 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+
+## for enabling https://amaitlab.guthub.io/ repository
+## Author : Amsit <dezavue3@gmail.com>
+## 
+
+set -e
+
+## Ensure PREFIX
+test -z $PREFIX && \
+	PREFIX=/data/data/com.termux/files/usr
+
+## Ensure TMPDIR
+test -z $TMPDIR && \
+	TMPDIR="${PREFIX}/tmp"
+
+## gnupg public key file
+PUBKEY="${TMPDIR}/pubkey.gpg"
+## user device architecture
+ARCHITECTURE=$(uname -m)
+## location of sources.list
+SOURCES_LIST="${PREFIX}/etc/apt/sources.list"
+
+
+## main program
+main(){
+
+## Displaying help message when args count is 0
+if [ $# -eq 0 ]; then
+	__help 
+	exit
+fi
+
+
+## Filtering allowed arg 1
+## Display help message when arg 1 is invalid.
+case $1 in 
+	"enable"|"disable")
+		$@
+		apt update
+		;;
+	"-h"|"help"|*)
+		__help
+		;;
+esac
+
+
+}
+
+## help message
+__help(){
+
+	echo "Usage: "
+	echo
+	echo "	bhs-repo enable"
+	echo "		enabling repo https://blackholesecurity.github.io"
+	echo
+	echo "	bhs-repo disable"
+	echo "		disabling repo https://blackholesecurity.github.io"
+	echo
+	echo "	bhs-repo help"
+	echo "		show this message and exit"
+	echo 
+	echo 
+	echo "# 2018 (C) Amsit <dezavue3@gmail.com>"
+
+}
+
+## help message
+help(){
+	## redirect 
+	__help
+}
+
+
+## enabling repository
+enable(){
+
+apt update
+apt upgrade -y
+
+
+apt install gnupg wget
+## Download gnupg public key
+wget -O "$PUBKEY" https://blackholesecurity.github.io/pubkey.gpg
+
+apt-key add "$PUBKEY"
+
+rm -fr "$PUBKEY"
+
+## Prevent duplicate entries in sources.list
+disable
+
+## Ensure user device architecture
+## set as "aarch64" when architecture unknown
+if [ -z "$ARCHITECTURE" ]; then
+	echo "Unknown architecture"
+	echo "Note:"
+	echo "	Architecture will be set as \"aarch64\""
+	echo "	If this wrong, Please edit file"
+	echo "	${SOURCES_LIST/$HOME/\~}"
+	ARCHITECTURE=aarch64
+fi
+
+## do not ask me , you known it
+case "$ARCHITECTURE" in
+	armv7*)
+		ARCHITECTURE=arm
+		;;
+esac
+
+echo "deb [trusted=true,arch=all,${ARCHITECTURE}] https://blackholesecurity.github.io/ termux blackholesecurity" >> "$SOURCES_LIST"
+
+
+}
+
+
+## Disabling repo
+disable(){
+	sed -i '/https:\/\/blackholesecurity.github.io\//d' "$SOURCES_LIST"
+}
+
+main $@
+
+unset SOURCES_LIST ARCHITECTURE PUBKEY

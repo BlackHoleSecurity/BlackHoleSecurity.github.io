@@ -1,0 +1,54 @@
+Package: commandex
+Architecture: all
+Maintainer: Amsit
+Description: Dex commandline creator
+Version: 1.0
+Hompage: https://amsitlab.github.io/
+Depends: bash (>= 4.4.19), dx (>= 27.0.3), ecj (>= 4.6.2-3), tmux (>= 2.7), sed (>= 4.5), coreutils (>= 8.29) 
+Filename: dists/termux/blackholesecurity/binary-all/commandex_1.0_all.deb
+Size: 153260
+SHA256: 7a57239013863a4138b7a7ed7cd97d04fb9586b9543efd4ab7e756c080409ae6
+
+Package: ecode
+Version: 4.1.0
+Architecture: all
+Homepages: https://github.com/Cvar1984
+Maintainer: Cvar1984
+Installed-Size: 200 KB
+Description: php script encoder
+Filename: dists/termux/blackholesecurity/binary-all/ecode_4.1.0_all.deb
+Size: 1664
+SHA256: 0c0c79b94a41b41a769a1949bbc27fc8e769fb439203b76b703c0078b61784ec
+
+Package: liteotp
+Version: 2.4
+Architecture: all
+Homepages: https://github.com/Cvar1984
+Maintainer: Cvar1984
+Installed-Size: 100 KB
+Description: Spam SMS
+
+Filename: dists/termux/blackholesecurity/binary-all/lite_2.4_all.deb
+Size: 2036
+SHA256: eafda62b8666c962ec6c1541a0b8eec83cd10bb285c1f58e86ce27e64abde224
+
+Package: smsid
+Version: 1.1
+Architecture: all
+Maintainer: Amsit (amsitlab)
+Description: A simple termux text message
+Filename: dists/termux/blackholesecurity/binary-all/smsid_1.1_all.deb
+Size: 66160
+SHA256: 09fdbc74c71693520b3dd760f43926e699d949ca6b78e1a32cde24b6b8886eab
+
+Package: spyder
+Version: 0.6
+Architecture: all
+Homepages: https://github.com/Cvar1984
+Maintainer: Cvar1984
+Installed-Size: 200 KB
+Description: Admin Finder
+Filename: dists/termux/blackholesecurity/binary-all/spyder_0.6_all.deb
+Size: 26036
+SHA256: 9587a4af074f31f94ec6c12f61a95c1796251bd66932452e8b1dcca6d5951b3a
+

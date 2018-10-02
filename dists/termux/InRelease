@@ -1,0 +1,20 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Codename: termux
+Version: 1
+Architectures: all aarch64 arm i686 x86_64
+Description: Unofficiall termux repository
+Suite: termux
+Date: Fri, 01 Jun 2018 16:18:35 +0000
+SHA256:
+ 240c36dac7ab23b51d9a25534c5ec6e85b390acfc8e544fe79b72ee6318997fa 1628 blackholesecurity/binary-all/Packages
+ 367c30de3136e22b625d0c9cdccee07a60ae0f3a9a5e8764575eb35956a61637 768 blackholesecurity/binary-all/Packages.xz
+-----BEGIN PGP SIGNATURE-----
+
+iJwEAQEKAAYFAlsRcdwACgkQWMax4Rz+pOpG1AP+LAJl/z9es67V18o0ua/gbOZf
+8yyRc4JFm7MN1M0lOjmIVi4r94pdbOBjT37m9KiU+c/CVc8q/V4tzMwzB1KuKBWo
+EGLQ7d59yN5cYWg/610yyAvRU1DAmy6cvRPtFCNy+TGraCMA5pGhVaB56Qw8xNvC
+YGYXTmAro9BhSgeNHnA=
+=KZMj
+-----END PGP SIGNATURE-----
